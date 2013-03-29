@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script type="text/javascript" src="lib/jquery.js" ></script>
+    <script type="text/javascript" src="lib/qunit-1.11.0.js" ></script>
+    <link rel="stylesheet" href="lib/qunit-1.11.0.css" ></link>
+
+    <script type="text/javascript" src="../src/metacpan.js"></script>
+</head>
+<body>
+    <div id="qunit" />
+    <script type="text/javascript">
+    $(function(){
+
+var metacpan;
+
+test( "object creation", function(){
+    metacpan = $.metacpan();
+
+    ok( metacpan != undefined );
+});
+
+asyncTest( "author", 1, function () {
+    metacpan.author('YANICK').success(function(data){ 
+        equal( data.name, 'Yanick Champoux', "author.name" );
+        start();
+    });
+});
+
+asyncTest( "module", 1, function () {
+            metacpan.module('Dist::Zilla').success(function(data){ 
+                equal( data.name, 'Zilla.pm', "module.name" );
+                start();
+            }); });
+
+asyncTest( "release", 1, function () {
+            metacpan.release('Dist-Zilla').success(function(data){ 
+                equal( data.name, 'Dist-Zilla-4.300031', "release.name" );
+                start();
+            });});
+
+    });
+    </script>
+</body>
+</html>
