@@ -1,0 +1,32 @@
+# MetaCPAN jQuery API
+
+Right now, this is still a proof of concept and will grow, but...
+
+```    
+<html>
+<head>
+    <script type="text/javascript" src="jquery.js" ></script>
+    <script type="text/javascript" src="metacpan.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+    $(function(){
+
+var metacpan = $.metacpan();
+
+// returns a promise, just like $.get()
+metacpan.author('YANICK').success(function(data){
+    alert( data.name );
+});
+
+metacpan.module('Dist::Zilla').success(function(data){ 
+    alert( data.description );
+});
+
+metacpan.release('Dist-Zilla').success(function(data){ 
+    alert( data.date );
+});
+</script>
+</body>
+</html>
+```
