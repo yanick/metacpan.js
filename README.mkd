@@ -1,5 +1,7 @@
 # MetaCPAN jQuery API
 
+A javaScript API for MetaCPAN. 
+
 Right now, this is still a proof of concept and will grow, but...
 
 ```    
@@ -30,3 +32,48 @@ metacpan.release('Dist-Zilla').success(function(data){
 </body>
 </html>
 ```
+
+## Methods
+
+Note: All methods return promises, just like *jQuery*'s AJAX methods, and not
+the queries data directly.
+
+### author( *pause_id* )
+
+Returns information about the given author (see
+[[http://api.metacpan.org/v0/author/_mapping]]).
+
+```javascript
+$.metacpan().author('YANICK').success( function(data){
+    alert( data.name );
+});
+```
+
+### module( *module_name* )
+
+Returns information about the given module (see
+[[http://api.metacpan.org/v0/module/_mapping]]).
+
+```javascript
+$.metacpan().module('Dist::Zilla').success( function(data){
+    alert( data.description );
+});
+```
+### release( *release_name* )
+
+Returns information about the given release (see
+[[http://api.metacpan.org/v0/release/_mapping]]).
+
+```javascript
+$.metacpan().release('Dist-Zilla').success( function(data){
+    alert( data.date );
+});
+```
+
+## See Also
+
+* The [MetaCPAN API documentation](https://github.com/CPAN-API/cpan-api/wiki/Beta-API-docs), natch.
+
+* The [MetaCPAN explorer](http://explorer.metacpan.org), which provides an easy wayt to play with the requests (alongside good examples).
+
+* [MetaCPAN::API](https://metacpan.org/release/MetaCPAN-API), providing an interface to the MetaCPAN API in perl-space.

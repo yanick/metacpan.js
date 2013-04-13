@@ -34,7 +34,7 @@ asyncTest( "module", 1, function () {
 
 asyncTest( "release", 1, function () {
             metacpan.release('Dist-Zilla').success(function(data){ 
-                equal( data.name, 'Dist-Zilla-4.300031', "release.name" );
+                equal( data.name.match( /^Dist-Zilla/ ).length, 1, "release.name" ) ;
                 start();
             });});
 
