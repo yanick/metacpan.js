@@ -41,7 +41,7 @@ the queries data directly.
 ### author( *pause_id* )
 
 Returns information about the given author (see
-[[http://api.metacpan.org/v0/author/_mapping]]).
+http://api.metacpan.org/v0/author/_mapping).
 
 ```javascript
 $.metacpan().author('YANICK').success( function(data){
@@ -52,7 +52,7 @@ $.metacpan().author('YANICK').success( function(data){
 ### module( *module_name* )
 
 Returns information about the given module (see
-[[http://api.metacpan.org/v0/module/_mapping]]).
+http://api.metacpan.org/v0/module/_mapping).
 
 ```javascript
 $.metacpan().module('Dist::Zilla').success( function(data){
@@ -62,7 +62,7 @@ $.metacpan().module('Dist::Zilla').success( function(data){
 ### release( *release_name* )
 
 Returns information about the given release (see
-[[http://api.metacpan.org/v0/release/_mapping]]).
+http://api.metacpan.org/v0/release/_mapping).
 
 ```javascript
 $.metacpan().release('Dist-Zilla').success( function(data){
