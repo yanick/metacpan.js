@@ -11,13 +11,14 @@
     <script type="text/javascript">
     $(function(){
 
-var metacpan;
 
 test( "object creation", function(){
     metacpan = $.metacpan();
 
     ok( metacpan != undefined );
 });
+
+var metacpan = $.metacpan();
 
 asyncTest( "author", 1, function () {
     metacpan.author('YANICK').success(function(data){ 
@@ -35,6 +36,12 @@ asyncTest( "module", 1, function () {
 asyncTest( "release", 1, function () {
             metacpan.release('Dist-Zilla').success(function(data){ 
                 equal( data.name.match( /^Dist-Zilla/ ).length, 1, "release.name" ) ;
+                start();
+            });});
+
+asyncTest( "file", 1, function () {
+            metacpan.file('DOY','Moose-2.0001','lib/Moose.pm').success(function(data){ 
+                equal( data.distribution, 'Moose', "file.distribution" ) ;
                 start();
             });});
 

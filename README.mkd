@@ -70,6 +70,17 @@ $.metacpan().release('Dist-Zilla').success( function(data){
 });
 ```
 
+### file( *author*, *release*, *path* )
+
+Returns information about the given file (see
+http://api.metacpan.org/v0/file/_mapping).
+
+```javascript
+$.metacpan().file('DOY','Moose-2.0001','lib/Moose.pm').success( function(data){
+    alert( data.distribution );
+});
+```
+
 ## See Also
 
 * The [MetaCPAN API documentation](https://github.com/CPAN-API/cpan-api/wiki/Beta-API-docs), natch.
